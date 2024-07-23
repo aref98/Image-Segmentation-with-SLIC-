@@ -5,6 +5,7 @@ from skimage.segmentation import slic
 from skimage.color import label2rgb
 from skimage.util import img_as_float
 import matplotlib.pyplot as plt
+import os
 
 def segment_image(image_path, n_segments=100, compactness=10):
     # Load the image
@@ -21,9 +22,12 @@ def segment_image(image_path, n_segments=100, compactness=10):
     return segmented_image, segments
 
 if __name__ == "__main__":
+
+    current_directory = os.getcwd()
+    print(f"Current working directory: {current_directory}")
     # Define the input and output paths
-    input_image_path = "./Images/content_image.jpg"
-    output_image_path = "./Images/to/segmented_image.jpg"
+    input_image_path = "Images/content_image.png"
+    output_image_path = "./Images/segmented_image.png"
     output_segments_path = "./Images/segments.npy"
 
     # Segment the image
