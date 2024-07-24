@@ -7,7 +7,7 @@ from skimage.util import img_as_float
 import matplotlib.pyplot as plt
 import os
 
-def segment_image(image_path, n_segments=100, compactness=10):
+def segment_image(image_path, n_segments, compactness):
     # Load the image
     image = cv2.imread(image_path)
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     output_segments_path = "./Images/segments.npy"
 
     # Segment the image
-    segmented_image, segments = segment_image(input_image_path, n_segments=200, compactness=10)
+    segmented_image, segments = segment_image(input_image_path, n_segments=2500, compactness=9)
 
     # Save the segmented image
     segmented_image_bgr = cv2.cvtColor(segmented_image, cv2.COLOR_RGB2BGR)
